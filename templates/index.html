@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disney-Style Storybook Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Disney-Style Storybook Generator</h2>
+    <p>Enter a theme or short description for your story (e.g., "story about animals").</p>
+    <textarea id="theme" rows="3" placeholder="Enter story theme"></textarea>
+    <button onclick="generateStory()">Generate Story</button>
+    <div id="errorMessage" style="color:red; display:none;"></div>
+    
+    <div id="story-container" style="display:none;">
+      <h3>Storyline</h3>
+      <p id="storyline"></p>
+      
+      <div class="info-bar">
+        <span id="scene-count-display">Story with 10 scenes</span>
+        <span id="generation-status"></span>
+      </div>
+      
+      <h3>Characters</h3>
+      <ul id="characters"></ul>
+      
+      <h3>Scenes</h3>
+      <div id="flipbook-container">
+        <div id="flipbook"></div>
+        <div class="flipbook-controls">
+          <button id="prev-page-btn" onclick="prevPage()" disabled>Previous</button>
+          <button id="next-page-btn" onclick="nextPage()">Next</button>
+        </div>
+      </div>
+      
+      <div class="controls">
+        <button onclick="generateAllImages()" class="primary-btn">Generate All Images</button>
+        <button id="fullscreen-btn" onclick="toggleFullscreen()">Full Screen</button>
+        <button id="play-music-btn" onclick="playMusic()" style="display: none;">Play Music</button>
+      </div>
+      
+      <audio id="background-music" loop style="display:none;"></audio>
+      <div id="volume-control">
+        <label for="volume-slider">Music Volume: </label>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.7">
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
