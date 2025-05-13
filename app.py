@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 AIMLAPI_KEY = os.getenv("AIMLAPI_KEY")
 CHAT_API_URL = "https://api.openai.com/v1/chat/completions"
-DALLE_API_URL = "https://api.openai.com/v1/images/generations"
+GPT_IMAGE_URL = "https://api.openai.com/v1/images/generations"
 STABLE_AUDIO_GENERATE_URL = "https://api.aimlapi.com/v2/generate/audio"
 
 def generate_music(prompt="gentle and whimsical background music for a children's story", seconds_total=30):
@@ -262,7 +262,7 @@ def generate_scene_image():
     }
 
     try:
-        response = requests.post(DALLE_API_URL, headers=headers, json=payload)
+        response = requests.post(GPT_IMAGE_URL, headers=headers, json=payload)
         
         # Specific handling for rate limits
         if response.status_code == 429:
@@ -346,7 +346,7 @@ def generate_cover_image():
     }
 
     try:
-        response = requests.post(DALLE_API_URL, headers=headers, json=payload)
+        response = requests.post(GPT_IMAGE_URL, headers=headers, json=payload)
         response.raise_for_status()
         response_json = response.json()
 

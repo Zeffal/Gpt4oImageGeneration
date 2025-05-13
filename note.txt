@@ -1,2 +1,13 @@
-narasi dibawah gambar
-background music tergantung cerita
+Make env file or use pip do download all requirements python library.
+
+---------------------------------------------------------------------
+
+Make .env file
+Put API key inside .env file.
+
+Example
+GPT API KEY:
+OPENAI_API_KEY=XXXXXXX
+
+Music API KEY:
+AIMLAPI_KEY=XXXXXXX
