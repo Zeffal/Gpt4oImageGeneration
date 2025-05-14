@@ -1,4 +1,4 @@
-Make env file or use pip do download all requirements python library.
+Make env folder or use pip do download all requirements python library.
 
 ---------------------------------------------------------------------
 
